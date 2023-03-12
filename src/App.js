@@ -101,9 +101,12 @@ function App() {
       </Badge>
       </div>
       <div className='background'>
-      <Badge bg="success">
-         For sale
-      </Badge>
+      <marquee width="60%" direction="left" scrollamount="20" height="100px">
+       <h1><i>Buy now</i></h1>
+     </marquee>
+     <marquee width="60%" direction="right" scrollamount="20" height="100px">
+       <h1><i>Grab<span>50% Offer</span></i></h1>
+     </marquee>
       </div>
     <div className='card-container'>
      {data.map((prod,idx)=> <Cards
