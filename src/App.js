@@ -1,15 +1,13 @@
-
-import { Badge, Button, Card } from 'react-bootstrap';
+import { Badge, Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Cards } from './components/card';
 
+import Stateless from './components/stateless';
+import { useState } from 'react';
 function App() {
   const [count, setCount] = useState(0)
+  const[value, setValue]=useState("selva")
   
   const data = [
     {
@@ -65,7 +63,8 @@ function App() {
 ];
   return (
     <div className='App'>
-     <div className=''>
+
+<div className=''>
      <Navbar bg="dark" variant='dark' expand="lg">
       <Container>
         <Navbar.Brand href="#home">Start Bootstrap</Navbar.Brand>
@@ -93,68 +92,54 @@ function App() {
       
       
     </div>
-
-      </div>
-      <div className='cart-value'>
-      <Badge bg="success">
-        🛒Cart {count}
-      </Badge>
-      </div>
-      <div className='background'>
+    <div className='cart-value'>
+        
+        <Badge bg="success">
+          🛒Cart {count}
+        </Badge>
+        </div>
+        <div className='background'>
       <marquee width="60%" direction="left" scrollamount="20" height="100px">
-       <h1><i>Buy now</i></h1>
+       <h1><i>Buy now 📱📱📱</i></h1>
      </marquee>
      <marquee width="60%" direction="right" scrollamount="20" height="100px">
-       <h1><i>Grab<span>50% Offer</span></i></h1>
+       <h1><i>Grab<span>50% Offer 🎉🎉🎉</span></i></h1>
      </marquee>
       </div>
-    <div className='card-container'>
-     {data.map((prod,idx)=> <Cards
-      idx = {idx}
-      prod={prod}
-      count={count}
-      setCount={setCount}/>      
-)}
-     
-   </div>  
-  </div>
-);
+      
+      <div className='card-container'>
+       {data.map((prod,idx)=> <Cards
+        key = {idx}
+        idx = {idx}
+        prod={prod}
+        count={count}
+        setCount={setCount}/>      
+  )}
+       
+     </div> 
+     <Stateless/> 
+    
+    </div>
+    </div>
+  );
+    
+  }
   
-}
+      {/*
+      <Button
+      name="Mybutton"
+      bgClr="yellow"
+      clr="red"
+      onClick={()=>console.log(value)}
+
+      />
+  */}
 
 export default App;
 
-function Cards ({prod,idx,count,setCount}){{/* props also use in this place  */}
-  const [show , setshow] = useState(false)/*initial value give it inside the usestate */
-
-  function addToCart (){
-    setshow(!show)
-    setCount(count+1)
-  }
-  function removeFromCart(){
-    setshow(!show)
-    setCount(count-1)
-  }
-  return(
- 
-    <Card className='card-data' key = {idx} style={{ width: '18rem' }}>
-<Card.Img variant="top" className='size' src={prod.productImage} />
-<Card.Body>
-  <Card.Title>{prod.productName}</Card.Title>{/*props need to add if props keyword inside function */}
-  <Card.Text>{prod.price}</Card.Text>{/*props.prod.price use like that */}
-  <Card.Text>{prod.rating}</Card.Text>
-  {!show ?<Button variant="primary" 
-  onClick={addToCart}>Buy Now</Button> : ""}{/*onClick={()=>setshow(!show)} */}
-
-  {/*condition rendering */}
- 
-  {show ? <Button variant="danger" 
-  onClick={removeFromCart}>remove now</Button> : ""}{/*tenery operator*/}
-</Card.Body>
-</Card>
-
-  
-  
-  )
-
-}
+{/*Components - In depth
+Component life cycle
+Stateful and stateless components
+Reusable components 
+Passing dynamic data to component
+Introduction to Hook */}

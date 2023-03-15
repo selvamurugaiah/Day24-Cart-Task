@@ -28,19 +28,26 @@
   background-color: black;
   color: white;
 }
-.template{
-  background-image: url();
+.set-border{
+  border:1px solid black;
+  width:100%;
+  padding:15px;
+  gap:25px;
+  background-color: black;
+  color: white;
+}
+.My-btn{
+  border:none;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 12px;
+  font-family: 'Times New Roman', Times, serif;
 }
 .background{
-  background-image: url('img.png');
+  background-image: url('https://github.com/selvamurugaiah/Day24-Cart-Task/blob/master/src/img.png?raw=true');
   height:300px;
-  width:100%
+  width:100%;
+  color:white;
   
 }
-h1,span{
-  color:white;
-  background-color: rgb(37, 3, 3);
-  align-items: center;
-  justify-content: center;
-  width:200px;
-}
+
